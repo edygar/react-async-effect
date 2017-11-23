@@ -1,6 +1,6 @@
 {
   "name": "react-async-effect",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A component to help manage work outside render cycle",
   "main": "dist/react-toggled.cjs.js",
   "jsnext:main": "dist/react-toggled.esm.js",
@@ -12,7 +12,7 @@
     "add-contributor": "kcd-scripts contributors add",
     "test": "kcd-scripts test",
     "test:update": "kcd-scripts test --updateSnapshot",
-    "build": "kcd-scripts build",
+    "build": "kcd-scripts build --bundle --p-react",
     "lint": "kcd-scripts lint",
     "format": "kcd-scripts format",
     "validate": "kcd-scripts validate",
