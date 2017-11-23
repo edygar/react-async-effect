@@ -1,6 +1,6 @@
 {
   "name": "react-async-effect",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A component to help manage work outside render cycle",
   "main": "dist/react-toggled.cjs.js",
   "jsnext:main": "dist/react-toggled.esm.js",

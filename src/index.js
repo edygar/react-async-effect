@@ -19,6 +19,16 @@ export type AsyncState = {|
 |}
 
 /**
+ * Async Effect renderer props
+ */
+export type AsyncEffectRendererProps = {
+  ...AsyncState,
+  run: Function,
+  stop: Function,
+  reset: Function,
+}
+
+/**
  * A function to return a Worker bound to resolve and reject callbacks
  */
 export type workerFactory = (resolve: Function, reject: Function) => Worker
@@ -52,12 +62,12 @@ type Props = {
   /**
    * The UI to be rendered on each state change
    */
-  render({
-    ...AsyncState,
-    run: Function,
-    stop: Function,
-    reset: Function,
-  }): React.Node,
+  render(AsyncEffectRendererProps): React.Node,
+
+  /**
+   * Alias for render, for convenience
+   */
+  children(AsyncEffectRendererProps): React.Node,
 }
 
 const InitialState = {
@@ -217,11 +227,15 @@ export default class AsyncEffect extends React.Component<Props, AsyncState> {
   }
 
   render() {
-    return this.props.render({
+    const props = {
       ...this.state,
       run: this.run,
       stop: this.stop,
       reset: this.reset,
-    })
+    }
+
+    if (typeof this.props.render === 'function') return this.props.render(props)
+
+    return this.props.children(props)
   }
 }

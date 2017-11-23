@@ -57,3 +57,17 @@ typings/
 # dotenv environment variables file
 .env
 
+# Generated
+coverage
+dist
+.opt-in
+.opt-out
+.DS_Store
+.next
+storybook-static
+preact/
+
+# these cause more harm than good
+# when working with contributors
+package-lock.json
+yarn.lock
