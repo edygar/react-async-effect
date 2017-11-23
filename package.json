@@ -8,6 +8,7 @@
   "files": ["dist", "typings", "preact"],
   "keywords": ["async", "react", "effect"],
   "scripts": {
+    "prepare": "build",
     "add-contributor": "kcd-scripts contributors add",
     "test": "kcd-scripts test",
     "test:update": "kcd-scripts test --updateSnapshot",
@@ -39,8 +40,5 @@
   },
   "eslintConfig": {
     "extends": "./node_modules/kcd-scripts/eslint.js"
-  },
-  "babel": {
-    "presets": ["react-app"]
   }
 }
