@@ -23,6 +23,9 @@
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-eslint": "^7.2.3",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-flow-react-proptypes": "^9.1.0",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react-app": "^3.0.3",
     "eslint": "^4.9.0",
@@ -40,5 +43,13 @@
   },
   "eslintConfig": {
     "extends": "./node_modules/kcd-scripts/eslint.js"
+  },
+  "babel": {
+    "presets": [
+      "kcd-scripts/babel",
+      "flow-react-proptypes",
+      "add-module-exports",
+      "transform-flow-strip-types"
+    ]
   }
 }
