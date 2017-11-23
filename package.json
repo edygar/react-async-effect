@@ -1,6 +1,6 @@
 {
   "name": "react-async-effect",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "A component to help manage work outside render cycle",
   "main": "dist/react-async-effect.cjs.js",
   "jsnext:main": "dist/react-async-effect.esm.js",
@@ -46,7 +46,7 @@
   },
   "babel": {
     "presets": ["kcd-scripts/babel"],
-    "plugings": [
+    "plugins": [
       "flow-react-proptypes",
       "add-module-exports",
       "transform-flow-strip-types"
