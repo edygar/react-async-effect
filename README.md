@@ -2,9 +2,7 @@
 
 [![downloads][downloads-badge]][npmcharts] [![version][version-badge]][package]
 [![MIT License][license-badge]][license]
-
 [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors)
-[![Code of Conduct][coc-badge]][coc]
 
 [![Supports React and Preact][react-badge]][react]
 [![size][size-badge]][unpkg-dist] [![gzip size][gzip-badge]][unpkg-dist]
@@ -86,3 +84,5 @@ MIT
 [github-star]: https://github.com/edygar/react-async-effect/stargazers
 [twitter]: https://twitter.com/intent/tweet?text=Check%20out%20react-async-effect!%20https://github.com/edygar/react-async-effect%20%F0%9F%91%8D
 [twitter-badge]: https://img.shields.io/twitter/url/https/github.com/edygar/react-async-effect.svg?style=social
+[emojis]: https://github.com/kentcdodds/all-contributors#emoji-key
+[all-contributors]: https://github.com/kentcdodds/all-contributors
