@@ -39,9 +39,9 @@ type Props = {
    */
   stopOnUnmount: boolean,
 
-	/**
-	 * A function to return a Worker bound to resolve and reject callbacks
-	 */
+  /**
+   * A function to return a Worker bound to resolve and reject callbacks
+   */
   createWorker: workerFactory,
 
   /**
@@ -52,7 +52,12 @@ type Props = {
   /**
    * The UI to be rendered on each state change
    */
-  render({ ...AsyncState, run: Function, stop: Function, reset: Function }): React.Node,
+  render({
+    ...AsyncState,
+    run: Function,
+    stop: Function,
+    reset: Function,
+  }): React.Node,
 }
 
 const InitialState = {
@@ -61,22 +66,22 @@ const InitialState = {
   error: undefined,
 }
 
-export default class Async extends React.Component<Props, AsyncState> {
+export default class AsyncEffect extends React.Component<Props, AsyncState> {
   static defaultProps = {
-		// Most of time shouldn't be there two workers at the same time
+    // Most of time shouldn't be there two workers at the same time
     concurrentWorkers: false,
 
-		// Most of time shouldn't be there two tasks at the same time
+    // Most of time shouldn't be there two tasks at the same time
     concurrentRuns: false,
 
-		// Most of time, none is interested in a side-effect if none is listening
+    // Most of time, none is interested in a side-effect if none is listening
     stopOnUnmount: true,
   }
 
-	// A function to dispose worker's bind
+  // A function to dispose worker's bind
   unbindWorker: Function
 
-	// the current worker
+  // the current worker
   worker: Worker
 
   state = InitialState
@@ -123,7 +128,7 @@ export default class Async extends React.Component<Props, AsyncState> {
         result,
         error: undefined,
       },
-      this.didChange
+      this.didChange,
     )
   }
 
@@ -136,7 +141,7 @@ export default class Async extends React.Component<Props, AsyncState> {
         isRunning: false,
         error,
       },
-      this.didChange
+      this.didChange,
     )
   }
 
@@ -145,43 +150,42 @@ export default class Async extends React.Component<Props, AsyncState> {
    * they are not allowed
    */
   run = (...args: Array<any>) =>
-		this.setState(({ isRunning, ...state }, { concurrentRuns }) => {
-			if (isRunning && !concurrentRuns) {
-				this.worker.stop()
-			}
+    this.setState(({isRunning, ...state}, {concurrentRuns}) => {
+      if (isRunning && !concurrentRuns) {
+        this.worker.stop()
+      }
 
-			this.worker.run(...args)
+      this.worker.run(...args)
 
-			return { ...state, isRunning: true }
-		}, this.didChange)
+      return {...state, isRunning: true}
+    }, this.didChange)
 
   /**
    * Stops worker's run
    */
-	stop = () =>
-		this.setState(({ isRunning, ...state }) => {
-			if (isRunning) {
-				this.worker.stop()
-			}
+  stop = () =>
+    this.setState(({isRunning, ...state}) => {
+      if (isRunning) {
+        this.worker.stop()
+      }
 
-			return {
-				...state,
-				isRunning: false
-			}
-		}, this.didChange)
+      return {
+        ...state,
+        isRunning: false,
+      }
+    }, this.didChange)
 
-	/**
+  /**
    * Stops any run of the current worker.
    */
   reset = () =>
-    this.setState(({ isRunning }) => {
-			if (isRunning) {
-				this.worker.stop()
-			}
+    this.setState(({isRunning}) => {
+      if (isRunning) {
+        this.worker.stop()
+      }
 
-
-			return InitialState
-		}, this.didChange)
+      return InitialState
+    }, this.didChange)
 
   /**
    * Creates and bind worker to this listener
@@ -196,9 +200,9 @@ export default class Async extends React.Component<Props, AsyncState> {
     }
 
     this.worker = createWorker(
-			(...args) => resolve(...args),
-			(...args) => reject(...args)
-		)
+      (...args) => resolve(...args),
+      (...args) => reject(...args),
+    )
   }
 
   render() {

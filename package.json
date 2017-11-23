@@ -4,10 +4,17 @@
   "description": "A component to help manage work outside render cycle",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "add-contributor": "kcd-scripts contributors add",
+    "test": "kcd-scripts test",
+    "test:update": "kcd-scripts test --updateSnapshot",
+    "build": "kcd-scripts build",
+    "lint": "kcd-scripts lint",
+    "format": "kcd-scripts format",
+    "validate": "kcd-scripts validate",
+    "precommit": "kcd-scripts precommit"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-eslint": "^7.2.3",
@@ -20,19 +27,16 @@
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "^7.4.0",
     "flow-bin": "^0.57.3",
+    "kcd-scripts": "^0.30.3",
     "prettier": "^1.8.2"
   },
   "dependencies": {
     "react": "^16.0.0"
   },
   "eslintConfig": {
-    "extends": [
-      "react-app"
-    ]
+    "extends": ["react-app"]
   },
   "babel": {
-    "presets": [
-      "react-app"
-    ]
+    "presets": ["react-app"]
   }
 }
