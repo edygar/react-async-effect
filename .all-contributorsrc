@@ -1,0 +1,32 @@
+{
+  "projectName": "react-async-effect",
+  "projectOwner": "edygar",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "edygar",
+      "name": "Edygar de Lima Oliveira",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/566280?s=100&amp;v=4",
+      "profile": "https://github.com/edygar",
+      "contributions": [
+        "code",
+        "doc",
+        "infra"
+      ]
+    },
+    {
+      "login": "Miguel-Silva",
+      "name": "Miguel Silva",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/6819449?s=100&v=4",
+      "profile": "https://github.com/Miguel-Silva",
+      "contributions": [
+        "code",
+        "ideas"
+      ]
+    }
+  ]
+}
