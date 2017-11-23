@@ -45,8 +45,8 @@
     "extends": "./node_modules/kcd-scripts/eslint.js"
   },
   "babel": {
-    "presets": [
-      "kcd-scripts/babel",
+    "presets": ["kcd-scripts/babel"],
+    "plugings": [
       "flow-react-proptypes",
       "add-module-exports",
       "transform-flow-strip-types"
