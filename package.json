@@ -1,8 +1,12 @@
 {
   "name": "react-work-manager",
-  "version": "0.0.1",
+  "version": "0.0.0-semantically-released",
   "description": "A component to help manage work outside render cycle",
-  "main": "index.js",
+  "main": "dist/react-toggled.cjs.js",
+  "jsnext:main": "dist/react-toggled.esm.js",
+  "module": "dist/react-toggled.esm.js",
+  "files": ["dist", "typings", "preact"],
+  "keywords": ["async", "react", "effect"],
   "scripts": {
     "add-contributor": "kcd-scripts contributors add",
     "test": "kcd-scripts test",
@@ -34,7 +38,7 @@
     "react": "^16.0.0"
   },
   "eslintConfig": {
-    "extends": ["react-app"]
+    "extends": "./node_modules/kcd-scripts/eslint.js"
   },
   "babel": {
     "presets": ["react-app"]

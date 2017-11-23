@@ -120,6 +120,8 @@ export default class AsyncEffect extends React.Component<Props, AsyncState> {
 
   /**
    * handle async method's success callback
+   *
+   * @param {any} result the result of the async effect
    */
   resolve = (result: any = true) => {
     this.setState(
@@ -134,6 +136,8 @@ export default class AsyncEffect extends React.Component<Props, AsyncState> {
 
   /**
    * handle worker run's failure
+   *
+   * @param {any} error a error that occured during the effect
    */
   reject = (error: any = true) => {
     this.setState(
@@ -148,8 +152,10 @@ export default class AsyncEffect extends React.Component<Props, AsyncState> {
   /**
    * Runs worker's run with `...args`, stopping any concurrent runs
    * they are not allowed
+   *
+   * @param {any} args arguments to call `run` with
    */
-  run = (...args: Array<any>) =>
+  run = (...args: Array<any>) => {
     this.setState(({isRunning, ...state}, {concurrentRuns}) => {
       if (isRunning && !concurrentRuns) {
         this.worker.stop()
@@ -159,11 +165,12 @@ export default class AsyncEffect extends React.Component<Props, AsyncState> {
 
       return {...state, isRunning: true}
     }, this.didChange)
+  }
 
   /**
    * Stops worker's run
    */
-  stop = () =>
+  stop = () => {
     this.setState(({isRunning, ...state}) => {
       if (isRunning) {
         this.worker.stop()
@@ -174,11 +181,12 @@ export default class AsyncEffect extends React.Component<Props, AsyncState> {
         isRunning: false,
       }
     }, this.didChange)
+  }
 
   /**
    * Stops any run of the current worker.
    */
-  reset = () =>
+  reset = () => {
     this.setState(({isRunning}) => {
       if (isRunning) {
         this.worker.stop()
@@ -186,9 +194,12 @@ export default class AsyncEffect extends React.Component<Props, AsyncState> {
 
       return InitialState
     }, this.didChange)
+  }
 
   /**
    * Creates and bind worker to this listener
+   *
+   * @param {workerFactory} createWorker {@see @prop createWorker}
    */
   bindWorker = (createWorker: workerFactory) => {
     let resolve = this.resolve
