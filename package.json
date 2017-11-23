@@ -8,7 +8,7 @@
   "files": ["dist", "typings", "preact"],
   "keywords": ["async", "react", "effect"],
   "scripts": {
-    "prepare": "build",
+    "prepare": "kdc-scripts build",
     "add-contributor": "kcd-scripts contributors add",
     "test": "kcd-scripts test",
     "test:update": "kcd-scripts test --updateSnapshot",
@@ -25,7 +25,6 @@
     "react": ">=15"
   },
   "devDependencies": {
-    "react": "^16.0.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^7.2.3",
     "babel-plugin-add-module-exports": "^0.2.1",
@@ -40,7 +39,10 @@
     "eslint-plugin-react": "^7.4.0",
     "flow-bin": "^0.59.0",
     "kcd-scripts": "^0.30.3",
-    "prettier": "^1.8.2"
+    "preact": "^8.2.6",
+    "preact-render-to-string": "^3.7.0",
+    "prettier": "^1.8.2",
+    "react": "^16.0.0"
   },
   "dependencies": {},
   "eslintConfig": {
