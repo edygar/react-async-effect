@@ -8,7 +8,7 @@
   "files": ["dist", "typings", "preact"],
   "keywords": ["async", "react", "effect"],
   "scripts": {
-    "prepare": "kdc-scripts build",
+    "prepare": "npm run build",
     "add-contributor": "kcd-scripts contributors add",
     "test": "kcd-scripts test",
     "test:update": "kcd-scripts test --updateSnapshot",
@@ -27,7 +27,6 @@
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-eslint": "^7.2.3",
-    "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-flow-react-proptypes": "^9.1.0",
     "babel-plugin-transform-flow-strip-types": "^6.22.0",
     "babel-preset-env": "^1.6.1",
@@ -50,10 +49,6 @@
   },
   "babel": {
     "presets": ["kcd-scripts/babel"],
-    "plugins": [
-      "flow-react-proptypes",
-      "add-module-exports",
-      "transform-flow-strip-types"
-    ]
+    "plugins": ["flow-react-proptypes", "transform-flow-strip-types"]
   }
 }
