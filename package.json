@@ -8,7 +8,7 @@
   "files": ["dist", "typings", "preact"],
   "keywords": ["async", "react", "effect"],
   "scripts": {
-    "prepare": "npm run build",
+    "prepublish": "npm run build",
     "add-contributor": "kcd-scripts contributors add",
     "test": "kcd-scripts test",
     "test:update": "kcd-scripts test --updateSnapshot",
