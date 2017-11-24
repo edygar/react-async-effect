@@ -1,6 +1,6 @@
 {
   "name": "react-async-effect",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "description": "A component to help manage work outside render cycle",
   "main": "dist/react-async-effect.cjs.js",
   "jsnext:main": "dist/react-async-effect.esm.js",
