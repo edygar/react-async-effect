@@ -57,17 +57,17 @@ type Props = {
   /**
    * Called whenever state is changed
    */
-  onChange(state: AsyncState): void,
+  onChange?: (state: AsyncState) => void,
 
   /**
    * The UI to be rendered on each state change
    */
-  render(AsyncEffectRendererProps): React.Node,
+  render?: AsyncEffectRendererProps => React.Node,
 
   /**
    * Alias for render, for convenience
    */
-  children(AsyncEffectRendererProps): React.Node,
+  children?: AsyncEffectRendererProps => React.Node,
 }
 
 const InitialState = {
