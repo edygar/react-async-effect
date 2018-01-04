@@ -18,7 +18,7 @@
     "validate": "kcd-scripts validate",
     "precommit": "kcd-scripts precommit"
   },
-  "author": "",
+  "author": "Edygar de Lima Oliveira <edygar@me.com>",
   "license": "MIT",
   "peerDependencies": {
     "prop-types": ">=15",
