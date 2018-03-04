@@ -167,11 +167,14 @@ export default class AsyncEffect extends React.Component<Props, AsyncState> {
    */
   run = (...args: Array<any>) => {
     this.setState(({isRunning, ...state}, {concurrentRuns}) => {
-      if (isRunning && !concurrentRuns) {
+      if (isRunning && !concurrentRuns && this.worker.stop) {
         this.worker.stop()
       }
 
-      this.worker.run(...args)
+      const disposalReturned = this.worker.run(...args)
+      if (!this.worker.stop) {
+        this.worker.stop = disposalReturned
+      }
 
       return {...state, isRunning: true}
     }, this.didChange)
@@ -224,6 +227,12 @@ export default class AsyncEffect extends React.Component<Props, AsyncState> {
       (...args) => resolve(...args),
       (...args) => reject(...args),
     )
+
+    if (typeof this.worker === 'function') {
+      this.worker = {
+        run: this.worker,
+      }
+    }
   }
 
   render() {
